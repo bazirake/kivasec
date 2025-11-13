@@ -1,9 +1,25 @@
-import { ArrowRight, Shield, Network, Users, Clock, Award, Mail, MapPin, Phone, Zap, Menu, X, AlertCircle, TrendingDown, Lock } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Shield, Network, Users, Clock, Award, Mail, MapPin, Phone, Zap, Menu, X, AlertCircle, TrendingDown, ArrowUp, Lock } from "lucide-react";
+import { useEffect, useState } from "react";
 import kivasecLogo from "../Images/kivasec-ogo.png";
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+   const [showScrollButton, setShowScrollButton] = useState(false);
+
+
+    // ✅ Scroll button visibility control
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // ✅ Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a0e27] via-[#0f1535] to-[#0a0e27] text-white overflow-hidden">
@@ -43,6 +59,17 @@ const Home = () => {
         )}
       </header>
 
+           {/* ✅ Scroll-to-Top Button */}
+      {showScrollButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 p-4 rounded-full bg-gradient-to-r from-[#00d4ff] to-[#0099ff] text-white shadow-lg hover:scale-110 transition-transform duration-300 z-50 border border-[rgba(255,255,255,0.2)]"
+          aria-label="Scroll to Top"
+        >
+          <ArrowUp className="h-6 w-6" />
+        </button>
+      )}
+
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-32 md:pt-40 md:pb-48 mt-16">
         <div className="absolute inset-0 overflow-hidden">
@@ -71,20 +98,18 @@ const Home = () => {
               Technology and security solutions for smarter and more efficient businesses
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <a
-  href="#contact"
-  className="tech-button-primary shadow-lg cursor-pointer"
->
-  Request a Free Security Health-Check
-  <ArrowRight className="inline ml-2 h-4 w-4" />
-</a>
-
-              <a href="#contact" className="tech-button-secondary">
+      <div className="flex flex-col sm:flex-row gap-4 pt-6">
+        <a
+         href="#contact"
+          className="tech-button-primary shadow-lg cursor-pointer">
+          Request a Free Security Health-Check
+         <ArrowRight className="inline ml-2 h-4 w-4" />
+      </a>
+       <a href="#contact" className="tech-button-secondary">
                 Contact Us
-                <ArrowRight className="inline ml-2 h-4 w-4" />
-              </a>
-            </div>
+       <ArrowRight className="inline ml-2 h-4 w-4" />
+       </a>
+        </div>
           </div>
         </div>
       </section>
