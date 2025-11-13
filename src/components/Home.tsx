@@ -262,47 +262,114 @@ const Home = () => {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="relative py-20 md:py-32 border-t border-[rgba(0,212,255,0.1)]">
-        <div className="mx-auto max-w-6xl px-6 sm:px-10">
-          <h2 className="section-title mb-12">Get in Touch</h2>
-          <div className="grid gap-8 md:grid-cols-3 mb-12">
-            {[
-              { icon: MapPin, label: "Address", value: "KN 3 Avenue, Kigali – Rwanda" },
-              { icon: Mail, label: "Email", value: "info@kivasec.rw", isLink: true, href: "mailto:info@kivasec.rw" },
-              { icon: Phone, label: "Phone", value: "+250 785 686 679", isLink: true, href: "tel:+250785686679" }
-            ].map((contact) => (
-              <div key={contact.label} className="dark-card glow-border p-8 hover:border-[rgba(0,212,255,0.4)] transition-colors">
-                <contact.icon className="h-10 w-10 text-[#00d4ff] mb-4" />
-                <h3 className="font-bold text-white mb-2">{contact.label}</h3>
-                {contact.isLink ? (
-                  <a href={contact.href} className="text-[#00d4ff] hover:text-[#00e4ff] transition-colors font-medium">
-                    {contact.value}
-                  </a>
-                ) : (
-                  <p className="text-slate-400">{contact.value}</p>
-                )}
-              </div>
-            ))}
-          </div>
+  <section
+  id="contact"
+  className="relative py-20 md:py-32 border-t border-[rgba(0,212,255,0.1)]"
+>
+  <div className="mx-auto max-w-6xl px-6 sm:px-10">
+    <h2 className="section-title mb-12">Get in Touch</h2>
 
-          <div className="grid gap-8 md:grid-cols-3 md:col-span-3 mb-12">
-            <div key="website" className="dark-card glow-border p-8 hover:border-[rgba(0,212,255,0.4)] transition-colors md:col-span-3">
-              <h3 className="font-bold text-white mb-2">Website</h3>
-              <a href="https://www.kivasec.rw" target="_blank" rel="noopener noreferrer" className="text-[#00d4ff] hover:text-[#00e4ff] transition-colors font-medium">
-                www.kivasec.rw
-              </a>
-            </div>
-          </div>
-
-          <div className="text-center space-y-6 dark-card glow-border p-12">
-            <p className="text-xl text-slate-300">Ready to secure your business?</p>
-            <button className="tech-button-primary mx-auto shadow-lg">
-              Request a Free Security Health-Check
-              <ArrowRight className="inline ml-2 h-5 w-5" />
-            </button>
-          </div>
+    {/* Contact Form */}
+    <div className="dark-card glow-border p-12 mb-16 max-w-3xl mx-auto">
+      <h3 className="text-2xl font-bold text-white mb-8 text-center">
+        Send Us a Message
+      </h3>
+      <form className="grid grid-cols-1 gap-6">
+        <div>
+          <label className="block text-slate-300 mb-2">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] outline-none"
+            placeholder="john@example.com"
+            required
+          />
         </div>
-      </section>
+        <div>
+          <label className="block text-slate-300 mb-2">Subject</label>
+          <input
+            type="text"
+            name="subject"
+            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] outline-none"
+            placeholder="How can we help?"
+          />
+        </div>
+        <div>
+          <label className="block text-slate-300 mb-2">Message</label>
+          <textarea
+            name="message"
+            rows={5}
+            className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] outline-none resize-none"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+        </div>
+        <div className="text-center">
+          <button
+            type="submit"
+            className="tech-button-primary shadow-lg px-10 py-3"
+          >
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+
+    {/* Contact Info */}
+    <div className="grid gap-8 md:grid-cols-3 mb-12">
+      {[
+        { icon: MapPin, label: "Address", value: "KN 3 Avenue, Kigali – Rwanda" },
+        { icon: Mail, label: "Email", value: "info@kivasec.rw", isLink: true, href: "mailto:info@kivasec.rw" },
+        { icon: Phone, label: "Phone", value: "+250 785 686 679", isLink: true, href: "tel:+250785686679" }
+      ].map((contact) => (
+        <div
+          key={contact.label}
+          className="dark-card glow-border p-8 hover:border-[rgba(0,212,255,0.4)] transition-colors"
+        >
+          <contact.icon className="h-10 w-10 text-[#00d4ff] mb-4" />
+          <h3 className="font-bold text-white mb-2">{contact.label}</h3>
+          {contact.isLink ? (
+            <a
+              href={contact.href}
+              className="text-[#00d4ff] hover:text-[#00e4ff] transition-colors font-medium"
+            >
+              {contact.value}
+            </a>
+          ) : (
+            <p className="text-slate-400">{contact.value}</p>
+          )}
+        </div>
+      ))}
+    </div>
+
+    {/* Website */}
+    <div className="grid gap-8 md:grid-cols-3 md:col-span-3 mb-12">
+      <div
+        key="website"
+        className="dark-card glow-border p-8 hover:border-[rgba(0,212,255,0.4)] transition-colors md:col-span-3"
+      >
+        <h3 className="font-bold text-white mb-2">Website</h3>
+        <a
+          href="https://www.kivasec.rw"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#00d4ff] hover:text-[#00e4ff] transition-colors font-medium"
+        >
+          www.kivasec.rw
+        </a>
+      </div>
+    </div>
+
+    {/* CTA */}
+    <div className="text-center space-y-6 dark-card glow-border p-12">
+      <p className="text-xl text-slate-300">Ready to secure your business?</p>
+      <button className="tech-button-primary mx-auto shadow-lg">
+        Request a Free Security Health-Check
+        <ArrowRight className="inline ml-2 h-5 w-5" />
+      </button>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="border-t border-[rgba(0,212,255,0.1)] py-8 md:py-12">
