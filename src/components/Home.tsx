@@ -72,14 +72,18 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <button className="tech-button-primary shadow-lg">
-                Request a Free Security Health-Check
-                <ArrowRight className="inline ml-2 h-4 w-4" />
-              </button>
-              <button className="tech-button-secondary">
+              <a
+  href="#contact"
+  className="tech-button-primary shadow-lg cursor-pointer"
+>
+  Request a Free Security Health-Check
+  <ArrowRight className="inline ml-2 h-4 w-4" />
+</a>
+
+              <a href="#contact" className="tech-button-secondary">
                 Contact Us
                 <ArrowRight className="inline ml-2 h-4 w-4" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -141,8 +145,8 @@ const Home = () => {
               {/* Cybersecurity */}
               <div className="space-y-6">
                 <div className="flex items-center gap-3 pb-4 border-b border-[rgba(0,212,255,0.2)]">
-                  <Shield className="h-8 w-8 text-[#00d4ff]" />
-                  <h3 className="text-2xl font-bold">Cybersecurity Services</h3>
+                     <Shield className="h-8 w-8 text-[#00d4ff]" />
+                     <h3 className="text-2xl font-bold">Cybersecurity Services</h3>
                 </div>
                 {[
                   { name: "Security Health-Check", desc: "Identify vulnerabilities before attackers do" },
