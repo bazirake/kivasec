@@ -1,19 +1,8 @@
-// src/App.tsx
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import DynamicRoutes from "./components/DynamicRoutes";
-// Example pages (you can replace these later)
-const App = () => {
-  return(
+import Home from "./components/Home";
 
-    <BrowserRouter>
-      <NavBar/>
-      <DynamicRoutes/>
-      <Footer/>
-    </BrowserRouter>
-  );
-};
+
+function App() {
+  return <Home />;
+}
 
 export default App;

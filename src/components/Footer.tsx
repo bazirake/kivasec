@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const Footer: React.FC = () => {
   return (
     <footer
-      className="py-5 mt-5 text-light"
+      className="py-5 mt-5 text-light bg-[#0B132B] text-gray-300 py-6 text-center"
       style={{
         background:
           "linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #222831 100%)", // Elegant black gradient

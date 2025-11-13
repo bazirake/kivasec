@@ -1,13 +1,106 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-[#0a0e27] via-[#0f1535] to-[#0a0e27] text-white antialiased;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif;
+    position: relative;
+  }
+
+  /* Tech grid background pattern */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      linear-gradient(0deg, transparent 24%, rgba(0, 255, 200, 0.05) 25%, rgba(0, 255, 200, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 200, 0.05) 75%, rgba(0, 255, 200, 0.05) 76%, transparent 77%, transparent),
+      linear-gradient(90deg, transparent 24%, rgba(0, 255, 200, 0.05) 25%, rgba(0, 255, 200, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 200, 0.05) 75%, rgba(0, 255, 200, 0.05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .tech-gradient {
+    @apply bg-gradient-to-br from-[#00d4ff] via-[#0099ff] to-[#6600ff];
+  }
+
+  .dark-card {
+    @apply bg-[rgba(10,14,39,0.6)] border border-[rgba(0,255,200,0.1)] backdrop-blur-md rounded-xl;
+  }
+
+  .glow-border {
+    @apply border border-[rgba(0,255,200,0.2)] hover:border-[rgba(0,255,200,0.5)] transition-colors duration-300;
+  }
+
+  .tech-button {
+    @apply px-6 py-3 rounded-lg font-semibold text-sm uppercase tracking-wider transition-all duration-300;
+  }
+
+  .tech-button-primary {
+    @apply tech-button bg-gradient-to-r from-[#00d4ff] to-[#0099ff] text-[#0a0e27] hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] hover:scale-105;
+  }
+
+  .tech-button-secondary {
+    @apply tech-button border-2 border-[rgba(0,255,200,0.3)] text-[#00d4ff] hover:border-[rgba(0,255,200,0.8)] hover:bg-[rgba(0,255,200,0.05)];
+  }
+
+  .section-title {
+    @apply text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-[#00d4ff] bg-clip-text text-transparent;
+  }
+
+  .tech-accent {
+    @apply text-[#00d4ff] font-semibold uppercase text-xs tracking-widest;
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #00d4ff;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  cursor: pointer;
+  margin-top: -8px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #00d4ff;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #00d4ff;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+  cursor: pointer;
 }

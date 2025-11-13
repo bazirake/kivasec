@@ -1,39 +1,53 @@
-import React from "react";
-
 const testimonials = [
   {
-    quote: "Kivasec Solutions provided us with outstanding service. Their team ensured our environment was protected with secure and highly reliable data security measures, while safeguarding our core devices. We feel confident knowing our systems are in trusted hands.",
-    client: "Fidela UMUHOZA",
-    title: "CEO, UWA & Co"
+    quote:
+      "We consolidated three testing toolchains into one programmable surface and cut release verification time by half. The observability exports are audit-ready from day one.",
+    name: "Jamie Ortega",
+    role: "VP of Platform Engineering, MergeStack"
   },
   {
-    quote: "As a leading call center solutions provider in Rwanda, Nimbus Ltd has worked with many partners, but Kivasec Solutions truly stands out. Their team assisted us in setting up some of the country's most recognized call centers ...",
-    client: "Yves BIGANIRO",
-    title: "CEO, Nimbus Ltd"
+    quote:
+      "Launch suites gave us deterministic, data-backed approvals across 14 regions. Our product and SRE teams finally speak the same language on API readiness.",
+    name: "Priya Gupta",
+    role: "Director of DevOps, HelixPulse"
   },
   {
-    quote: "Kivasec Solutions helped us modernize our IT environment by implementing a Domain Controller and FileShare. This transformed the way our staff collaborate ...",
-    client: "Radio Maria Rwanda",
-    title: "Media Organization"
+    quote:
+      "We modeled pricing instantly and shipped our own API testing tier with confidence. Customers receive validated endpoints before onboarding even begins.",
+    name: "Gabe Li",
+    role: "Founder, SyncForge"
   }
 ];
 
-const Testimonials: React.FC = () => {
-  return (
-    <section className="py-5 bg-secondary text-light">
-      <div className="container">
-        <h2>What Our Clients Say</h2>
-        {testimonials.map((t, i) => (
-          <blockquote key={i} className="blockquote mb-4">
-            <p>"{t.quote}"</p>
-            <footer className="blockquote-footer text-light">
-              {t.client}, <cite>{t.title}</cite>
-            </footer>
-          </blockquote>
+const Testimonials = () => (
+  <section className="bg-[#111318] py-24 text-white">
+    <div className="mx-auto max-w-6xl px-6 sm:px-10">
+      <div className="max-w-3xl space-y-5">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#EF4444]">Trusted Launches</p>
+        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          DevOps leaders use Launch Suite to ship resilient APIs at top speed.
+        </h2>
+      </div>
+      <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {testimonials.map((testimonial) => (
+          <figure
+            key={testimonial.name}
+            className="h-full rounded-2xl border border-white/5 bg-[#161A20] p-8"
+          >
+            <blockquote className="text-sm text-white/70 sm:text-base">
+              “{testimonial.quote}”
+            </blockquote>
+            <figcaption className="mt-6 space-y-1">
+              <p className="text-sm font-semibold text-white">{testimonial.name}</p>
+              <p className="text-xs uppercase tracking-wide text-white/40">
+                {testimonial.role}
+              </p>
+            </figcaption>
+          </figure>
         ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Testimonials;
