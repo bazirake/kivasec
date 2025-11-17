@@ -1,6 +1,12 @@
 import { ArrowRight, Shield, Network, Users, Clock, Award, Mail, MapPin, Phone, Zap, Menu, X, AlertCircle, TrendingDown, ArrowUp, Lock } from "lucide-react";
 import { useEffect, useState } from "react";
 import kivasecLogo from "../Images/kivasec-ogo.png";
+import PartnersCarousel, { Partner } from "./PartnersCarousel";
+import { partners } from "../Data/Object";
+
+
+
+
 
 const Home = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -390,13 +396,9 @@ const Home = () => {
     </div>
 
     {/* CTA */}
-    <div className="text-center space-y-6 dark-card glow-border p-12">
-      <p className="text-xl text-slate-300">Ready to secure your business?</p>
-      <button className="tech-button-primary mx-auto shadow-lg">
-        Request a Free Security Health-Check
-        <ArrowRight className="inline ml-2 h-5 w-5" />
-      </button>
-    </div>
+    
+      <PartnersCarousel partners={partners}  />
+   
   </div>
 </section>
 
